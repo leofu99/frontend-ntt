@@ -1,0 +1,29 @@
+<div class="container mt-5 d-flex justify-content-center">
+    <div class="card" style="width: 30rem;">
+        <div class="card-body">
+            <h6 class="card-title text-muted">Todos los campos son obligatorios</h6>
+            <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+                <div class="mb-3">
+                    <label for="documentType" class="form-label">Tipo de documento</label>
+                    <select id="documentType" class="form-select" formControlName="documentType">
+
+                        <option value="C">Cédula de ciudadanía</option>
+                        <option value="P">Pasaporte</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="documentNumber" class="form-label">Número de documento</label>
+                    <input type="text" class="form-control" id="documentNumber" formControlName="documentNumber"
+                        (input)="formatNumber()" placeholder="Número de documento" [value]="formattedDocumentNumber" />
+                </div>
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn rounded-pill"
+                        [ngClass]="userForm.valid ? 'btn-primary active-btn' : 'btn-secondary inactive-btn'"
+                        [disabled]="userForm.invalid || dataLoading">
+                        Buscar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

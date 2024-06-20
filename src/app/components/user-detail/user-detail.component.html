@@ -1,0 +1,24 @@
+<div class="container mt-5 d-flex justify-content-center">
+    <div class="card" style="width: 30rem;">
+        <div class="card-body ">
+            <h6 class="card-title text-muted">Información Básica</h6>
+            <form [formGroup]="userDetail">
+
+                <div class="mb-3 " [ngClass]="{ 'form-control-disabled': userDetail.disabled }">
+                    <label for="name" class="form-label">Primer nombre</label>
+                    <input type="text" class="form-control" id="name" formControlName="name" placeholder="nombre" />
+                </div>
+                <div class="mb-3 " [ngClass]="{ 'form-control-disabled': userDetail.disabled }">
+                    <label for="lastName" class="form-label">Primer apellido</label>
+                    <input type="text" class="form-control" id="lastName" formControlName="lastName"
+                        placeholder="nombre" />
+                </div>
+                <div class="d-grid gap-2">
+                    <button (click)="goBack()" type="submit" class="btn rounded-pill active-btn btn-primary">
+                        Volver
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
